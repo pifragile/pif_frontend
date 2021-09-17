@@ -1,5 +1,6 @@
 <template lang="pug">
 h1 Welcome to pifragile's NFTs!
+h3 Generative Art by pifragile.
 a.twitter-follow-button(href='https://twitter.com/pifragile?ref_src=twsrc%5Etfw' data-show-count='false') Follow @pifragile
 h3
   | I am a programmer and NFT artist working with different flavors of generative art!
@@ -18,6 +19,8 @@ h3
         :seriesUrl='nft.series_url'
         :seriesDescription='nft.series_description'
       )
+.footer
+  |  &copy; 2021 by pifragile
 </template>
 
 <script>
@@ -76,11 +79,21 @@ export default {
 body {
   font-family: 'VT323', sans-serif;
   background-color: #fff70f;
+  padding:0px 20px 0px 20px;
 }
 
 .nft-container {
   display: flex; /* or inline-flex */
   flex-wrap: wrap;
+
+  justify-content: space-evenly;
+
+  max-width: 100vw;
+}
+
+.footer {
+  padding-top:100px;
+  text-align: center;
 }
 
 </style>

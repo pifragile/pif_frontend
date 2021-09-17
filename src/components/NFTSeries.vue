@@ -3,7 +3,7 @@
 .nft-box#d_csc
   h2
     a(:href='seriesUrl') {{seriesName}}
-  .nft-description
+  .nft-description.break-text
     p {{seriesDescription}}
   h4 {{nftName}}
   a#a_csc(:href='nftUrl')
@@ -27,17 +27,27 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 img.nft {
-  height: 400px;
-  width: 400px;
+  width: 100%;
 }
 
 .nft-box {
   padding: 10px;
-  width: 420px;
-  height: 600px;
+  max-width: 400px;
 }
 
 .nft-description {
-  height: 50px;
+  width: 100%;
+  min-height: 60px;
+  white-space: normal;
 }
+
+.break-text{
+  white-space: pre-wrap;      /* CSS3 */
+   white-space: -moz-pre-wrap; /* Firefox */
+   white-space: -pre-wrap;     /* Opera <7 */
+   white-space: -o-pre-wrap;   /* Opera 7 */
+   word-wrap: break-word;      /* IE */
+}
+
+
 </style>
