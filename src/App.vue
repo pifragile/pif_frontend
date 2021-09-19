@@ -65,7 +65,6 @@ export default {
 
 
   mounted() {
-    document.title = 'pifragile\'s NFTs'
     let twitterScript = document.createElement('script')
     twitterScript.setAttribute('src', 'https://platform.twitter.com/widgets.js')
     document.head.appendChild(twitterScript)
