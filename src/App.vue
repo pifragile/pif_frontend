@@ -8,7 +8,9 @@ h3
   | If you need help with any technical issues concerning generative art, mint automation, smart contracts, metamask, etc... DM me on twitter. I have a Master&apos;s Degree in Computer Science and experience in those areas!
   br
   br
-  | Check out my projects below (reload page for new NFTs and click images to view on OpenSea)
+  | Check out my projects below (reload page for new NFTs and click images to view on OpenSea).
+  br
+  | You can now also buy NFTs with credit card on OpenSea!
 .nft-container
   NFTSeries(
         v-for='nft in nfts'
