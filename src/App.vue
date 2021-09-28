@@ -11,6 +11,14 @@ h3
   | Check out my projects below (reload page for new NFTs and click images to view on OpenSea).
   br
   | You can now also buy NFTs with credit card on OpenSea!
+
+.quotes
+  .quote
+    p NFT Collector&nbsp;
+      a(href='https://twitter.com/ghostlasers') ghostlasers
+      | &nbsp;about the Colorful Distortion Collection:
+      br
+      | "my favorite, is his generative evolutionary take on AbEx, Abstract Expressionism, [...] this fucking looks like Mark Rothko fighting Agnes Martin in an Octagon designed by Bridget Riley, with fucking Barnett Newman or Ad Reinhardt as the referee"
 .nft-container
   NFTSeries(
         v-for='nft in nfts'
@@ -95,6 +103,21 @@ body {
 .footer {
   padding-top:100px;
   text-align: center;
+}
+
+.quotes {
+  display: flex; /* or inline-flex */
+  flex-wrap: wrap;
+
+  justify-content: space-evenly;
+
+  max-width: 100vw;
+}
+
+.quote{
+  padding: 10px;
+  max-width: 400px;
+  background-color: cornsilk;
 }
 
 </style>
