@@ -3,7 +3,7 @@
 .nft-box#d_csc
   h2
     a(:href='seriesUrl') {{seriesName}}
-  .nft-description.break-text
+  div(v-if='!featured').nft-description.break-text
     p {{seriesDescription}}
   h4 {{nftName}}
   a#a_csc(:href='nftUrl')
@@ -19,7 +19,8 @@ export default {
     imageUrl: String,
     seriesName: String,
     seriesUrl: String,
-    seriesDescription: String
+    seriesDescription: String,
+    featured: Boolean
   }
 }
 </script>

@@ -12,6 +12,19 @@ h3
   br
   | You can now also buy NFTs with credit card on OpenSea!
 
+.nft-container
+    NFTSeries(
+        v-for='nft in featured_nfts'
+        :nftName='nft.nft_name'
+        :nftUrl='nft.nft_url'
+        :imageUrl='nft.image_url'
+        :seriesName='nft.series_name'
+        :seriesUrl='nft.series_url'
+        :seriesDescription='nft.series_description'
+        :featured='true'
+      )
+
+h2 Testimonials
 .quotes
   .quote
     p NFT Collector&nbsp;
@@ -19,6 +32,8 @@ h3
       | &nbsp;about the Colorful Distortion Collection:
       br
       | "my favorite, is his generative evolutionary take on AbEx, Abstract Expressionism, [...] this fucking looks like Mark Rothko fighting Agnes Martin in an Octagon designed by Bridget Riley, with fucking Barnett Newman or Ad Reinhardt as the referee"
+
+h2 All projects
 .nft-container
   NFTSeries(
         v-for='nft in nfts'
@@ -28,6 +43,7 @@ h3
         :seriesName='nft.series_name'
         :seriesUrl='nft.series_url'
         :seriesDescription='nft.series_description'
+        :featured='false'
       )
 .footer
   |  &copy; 2021 by pifragile
@@ -44,29 +60,27 @@ export default {
   },
   data() {
     return {
-      nfts: []
+      nfts: [],
+      featured_nfts: [],
     }
   },
 
     methods: {
     async getData() {
-      const response = await axios.get('https://space.pigu.ch/pifragile/get-nft-series/')
-      this.nfts = response.data
-      console.log(this.nfts)
-    },
-    async getData2() {
-      try {
-        const response = await this.$http.get(
-          'https://space.pigu.ch/pifragile/get-nft-series/'
-        );
-        // JSON responses are automatically parsed.
-        this.nfts = response.data;
-        console.log(this.nfts);
-      } catch (error) {
-        console.log(error);
+      this.nfts = []
+      this.featured_nfts = []
+      const response = await axios.get('https://space.pigu.ch/pifragile/get-nft-series/');
+      let nfts = response.data;
+      for(let nft of nfts) {
+        console.log(nft)
+        console.log(nft.priority)
+        if(nft.priority > 1000) {
+          this.featured_nfts.push(nft)
+        } else {
+          this.nfts.push(nft)
+        }
       }
-  },
-
+    },
   },
 
   created() {
