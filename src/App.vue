@@ -33,6 +33,11 @@ h2 Testimonials
       br
       | "my favorite, is his generative evolutionary take on AbEx, Abstract Expressionism, [...] this fucking looks like Mark Rothko fighting Agnes Martin in an Octagon designed by Bridget Riley, with fucking Barnett Newman or Ad Reinhardt as the referee"
 
+  .quote.virtualgallery
+    p Check out the piece Crypto Warriors #0002 in this&nbsp;
+      a(href='https://oncyber.io/rehearsal') virtual gallery
+      | .
+    img.virtualgallery(src="./assets/virtualgallery.png")
 h2 All projects
 .nft-container
   NFTSeries(
@@ -69,7 +74,7 @@ export default {
     async getData() {
       this.nfts = []
       this.featured_nfts = []
-      const response = await axios.get('https://space.pigu.ch/pifragile/get-nft-series/');
+      const response = await axios.get('https://space.pifragile.com/pifragile/get-nft-series/');
       let nfts = response.data;
       for(let nft of nfts) {
         console.log(nft)
@@ -134,4 +139,11 @@ body {
   background-color: cornsilk;
 }
 
+img.virtualgallery{
+  max-width: 200px;
+}
+
+.quote.virtualgallery{
+  text-align: center;
+}
 </style>
