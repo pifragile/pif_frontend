@@ -216,6 +216,10 @@ a:visited {
   color: black;
 }
 
+a {
+  color: black;
+}
+
 hr {
   border-top: 1px solid black;
   border-bottom: 0px;
