@@ -6,8 +6,7 @@
   div(v-if='!featured').nft-description.break-text
     p {{seriesDescription}}
   h4 {{nftName}}
-  a#a_csc(:href='nftUrl')
-    img.nft(:src='imageUrl')
+  a#a_csc(:href='nftUrl' ref="putImageHere")
 </template>
 
 <script>
@@ -16,11 +15,14 @@ export default {
   props: {
     nftName: String,
     nftUrl: String,
-    imageUrl: String,
+    image: Image,
     seriesName: String,
     seriesUrl: String,
     seriesDescription: String,
     featured: Boolean
+  },
+  mounted() {
+    this.$refs.putImageHere.appendChild(this.image);
   }
 }
 </script>
