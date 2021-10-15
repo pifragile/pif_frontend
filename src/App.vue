@@ -152,7 +152,7 @@ body {
 }
 
 .footer {
-  width: 100vw;
+  max-width: 100vw;
   padding-top: 100px;
   padding-bottom: 10px;
   text-align: center;
