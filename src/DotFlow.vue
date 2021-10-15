@@ -137,7 +137,7 @@ export default {
     async mintNFT() {
       let expectedChainId = '0x89'; //  '0x13881' Mumbai |  '0x89' is polygon mainnet
       let price = '0x2b5e3af16b1880000'; // 50 MATIC | '0x38d7ea4c68000'// 0.001 ETH | 0x16345785d8a0000 0.1
-      let contractAddress = '0x2d2e134FDfadFe31Ba1641d5952dD0A78dde91CC';
+      let contractAddress = '0x1103302c04e4f3ccF5C948Cfa1aAa690D2A569A8';
 
       if (window.ethereum === undefined || window.ethereum.selectedAddress === undefined) {
         alert("Please connect metamask!");
