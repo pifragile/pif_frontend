@@ -39,7 +39,7 @@ div You can mint your DotFlow NFT here. A&nbsp;
   | Price for 1 NFT: 50 MATIC.
   br
   | If you do not have MATIC available, you can also buy DotFlow NFTs on OpenSea on the&nbsp;
-  a(href="") secondary market
+  a(href="https://opensea.io/collection/dot-flow") secondary market
   | !
 br
 button(v-on:click='mintNFT') Mint DotFlow NFT
@@ -157,7 +157,7 @@ export default {
 
       const transactionParameters = {
         nonce: '0x00', // ignored by MetaMask
-        gasPrice: '0x01dcd65000', // customizable by user during MetaMask confirmation.
+        gasPrice: '0xba43b7400',// 50 gwei // customizable by user during MetaMask confirmation.
         gas: '0x1668C', // customizable by user during MetaMask confirmation.
         to: contractAddress, // Required except during contract publications.
         from: window.ethereum.selectedAddress, // must match user's active address.
@@ -210,14 +210,6 @@ iframe {
 
 .highlighted {
   color: hotpink;
-}
-
-a:visited {
-  color: black;
-}
-
-a {
-  color: black;
 }
 
 hr {

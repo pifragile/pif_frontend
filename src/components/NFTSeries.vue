@@ -1,12 +1,10 @@
 <template lang="pug">
 
 .nft-box#d_csc
-  h2
-    a(:href='seriesUrl') {{seriesName}}
-  div(v-if='!featured').nft-description.break-text
-    p {{seriesDescription}}
-  h4 {{nftName}}
-  a#a_csc(:href='nftUrl' ref="putImageHere")
+  .title
+    a(:href='seriesUrl' target='_blank') {{seriesName}}
+  a(:href='nftUrl' ref="putImageHere" target='_blank')
+  div(v-if='!featured').nft-description.break-text.text {{seriesDescription}}
 </template>
 
 <script>
@@ -29,19 +27,22 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-img.nft {
+img{
   width: 100%;
 }
 
 .nft-box {
-  padding: 10px;
-  max-width: 400px;
+  max-width: 800px;
+  margin: 0 4vw 0 0;
+  padding: 10px 10px 10px 0px;
 }
 
 .nft-description {
   width: 100%;
   min-height: 60px;
   white-space: normal;
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
 }
 
 .break-text{
@@ -50,6 +51,10 @@ img.nft {
    white-space: -pre-wrap;     /* Opera <7 */
    white-space: -o-pre-wrap;   /* Opera 7 */
    word-wrap: break-word;      /* IE */
+}
+
+.title {
+  margin: 70px 0 50px 0;
 }
 
 

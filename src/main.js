@@ -1,13 +1,13 @@
 import { h, createApp} from 'vue';
 
 import App from './App';
-import DotFlow from './DotFlow';
+//import DotFlow from './DotFlow';
 
 const NotFoundComponent = { template: '<p>Page not found</p>' }
 
 const routes = {
   '/': App,
-  '/dotflow': DotFlow
+  //'/dotflow': DotFlow
 }
 
 const SimpleRouter = {

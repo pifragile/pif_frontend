@@ -1,16 +1,15 @@
 <template lang="pug">
-h1 Welcome to pifragile's NFTs!
-h3 Generative Art by pifragile.
-a.twitter-follow-button(href='https://twitter.com/pifragile?ref_src=twsrc%5Etfw' data-show-count='false') Follow @pifragile
-h3
-  | I am a programmer and NFT artist working with different flavors of generative art!
+p
+  | Hi, I am an NFT artist and  programmer working with different flavors of generative art!
   br
-  | If you need help with any technical issues concerning generative art, mint automation, smart contracts, metamask, etc... DM me on twitter. I have a Master&apos;s Degree in Computer Science and experience in those areas!
+  | I can help you with generative art, mint automation, smart contracts, metamask, etc... DM me on twitter. I have a Master&apos;s Degree in Computer Science from ETH Zürich and experience in those areas!
   br
   br
   | Check out my projects below (reload page for new NFTs and click images to view on OpenSea).
   br
   | You can now also buy NFTs with credit card on OpenSea!
+
+p All the best, pifragile.
 
 
 .loader(v-if='isLoading')
@@ -25,24 +24,9 @@ div(v-else)
       :seriesName='nft.series_name'
       :seriesUrl='nft.series_url'
       :seriesDescription='nft.series_description'
-      :featured='true'
+      :featured='false'
     )
 
-  h2 Testimonials
-  .quotes
-    .quote
-      p NFT Collector&nbsp;
-        a(href='https://twitter.com/ghostlasers') ghostlasers
-        | &nbsp;about the Colorful Distortion Collection:
-        br
-        | "my favorite, is his generative evolutionary take on AbEx, Abstract Expressionism, [...] this fucking looks like Mark Rothko fighting Agnes Martin in an Octagon designed by Bridget Riley, with fucking Barnett Newman or Ad Reinhardt as the referee"
-
-    .quote.virtualgallery
-      p Check out the piece Crypto Warriors #0002 in this&nbsp;
-        a(href='https://oncyber.io/rehearsal') virtual gallery
-        | .
-      img.virtualgallery(src="./assets/virtualgallery.png")
-  h2 All projects
   .nft-container
     NFTSeries(
       v-for='nft in nfts'
@@ -54,8 +38,29 @@ div(v-else)
       :seriesDescription='nft.series_description'
       :featured='false'
     )
+
+  h2 Testimonials
+.quotes
+  .quote
+    p NFT Collector&nbsp;
+      a(href='https://twitter.com/ghostlasers') ghostlasers
+      | &nbsp;about the Colorful Distortion Collection:
+      br
+      | "my favorite, is his generative evolutionary take on AbEx, Abstract Expressionism, [...] this fucking looks like Mark Rothko fighting Agnes Martin in an Octagon designed by Bridget Riley, with fucking Barnett Newman or Ad Reinhardt as the referee"
+
+  .quote.virtualgallery.wrap-text
+    p Check out the piece Crypto Warriors #0002 in this&nbsp;
+      a(href='https://oncyber.io/rehearsal') virtual gallery
+      | .
+    img.virtualgallery(src="./assets/virtualgallery.png")
+
+
 .footer
-  |  &copy; 2021 by pifragile
+  a.twitter-follow-button(href='https://twitter.com/pifragile?ref_src=twsrc%5Etfw' data-show-count='false') Follow @pifragile
+  br
+  br
+  | &copy; 2021 by pifragile
+
 </template>
 
 <script>
@@ -87,7 +92,7 @@ export default {
         let image = new Image();
         image.src = nft['image_url'];
         image.className='nft';
-        image.style='width:100%'
+        image.style='width:100%;max-width:800px;'
         nft['image'] = image;
         if (nft.priority > 1000) {
           this.featured_nfts.push(nft)
@@ -138,6 +143,7 @@ export default {
 
 body {
   font-family: 'VT323', sans-serif;
+  color: blue;
   background-color: #fff70f;
   padding: 0px 20px 0px 20px;
 }
@@ -146,7 +152,7 @@ body {
   display: flex; /* or inline-flex */
   flex-wrap: wrap;
 
-  justify-content: space-evenly;
+  justify-content: left;
 
   max-width: 100vw;
 }
@@ -162,20 +168,21 @@ body {
   display: flex; /* or inline-flex */
   flex-wrap: wrap;
 
-  justify-content: space-evenly;
+  justify-content: left;
 
   max-width: 100vw;
 }
 
 .quote {
+  max-width: 100%;
+  background-color: #ffff0a;
   padding: 10px;
-  max-width: 400px;
-  background-color: cornsilk;
-  margin: 3px;
+  margin: 30px 30px 30px 0;
+
 }
 
 img.virtualgallery {
-  max-width: 200px;
+  max-width: 80vw;
 }
 
 .quote.virtualgallery {
@@ -188,5 +195,19 @@ img.virtualgallery {
   justify-content: space-evenly;
   max-width: 100vw;
   padding-top: 10vh;
+}
+
+a:visited {
+  color: blue;
+}
+
+a {
+  color: blue;
+}
+
+a, h2, h3, p, .text {
+  font-size:calc(20px + 2.5vw);
+
+  font-weight: bold;
 }
 </style>
