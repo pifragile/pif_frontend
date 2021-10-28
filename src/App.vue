@@ -13,7 +13,8 @@ p All the best, pifragile.
 
 
 .loader(v-if='isLoading')
-    ring-loader(:loading="isLoading" color="#000000")
+  div.text.loader-text Loading Collection...
+  ring-loader(:loading="isLoading" color="#0000ff")
 div(v-else)
   .nft-container
     NFTSeries(
@@ -54,6 +55,14 @@ div(v-else)
       | .
     img.virtualgallery(src="./assets/virtualgallery.png")
 
+
+.sketchbook
+p Sketchbook
+
+p White on Black
+img.sketch(src='./assets/sketchbook/sketch1.png')
+img.sketch(src='./assets/sketchbook/sketch2.png')
+img.sketch(src='./assets/sketchbook/sketch3.png')
 
 .footer
   a.twitter-follow-button(href='https://twitter.com/pifragile?ref_src=twsrc%5Etfw' data-show-count='false') Follow @pifragile
@@ -195,6 +204,7 @@ img.virtualgallery {
   justify-content: space-evenly;
   max-width: 100vw;
   padding-top: 10vh;
+  min-height: 40vh;
 }
 
 a:visited {
@@ -209,5 +219,20 @@ a, h2, h3, p, .text {
   font-size:calc(20px + 2.5vw);
 
   font-weight: bold;
+}
+
+.sketchbook {
+  max-width: 100vw;
+}
+
+.sketch {
+  max-width: 100%;
+  margin: 20px 0 0 0;
+}
+
+.loader-text{
+  width: 100%;
+  text-align: center;
+  margin-bottom: -30px;
 }
 </style>
