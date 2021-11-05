@@ -59,6 +59,13 @@ div(v-else)
 .sketchbook
 p Sketchbook
 
+p Glow
+img.sketch(src='./assets/sketchbook/glow/glow1.png')
+img.sketch(src='./assets/sketchbook/glow/glow2.png')
+img.sketch(src='./assets/sketchbook/glow/glow3.png')
+img.sketch(src='./assets/sketchbook/glow/glow4.png')
+
+
 p White on Black
 img.sketch(src='./assets/sketchbook/sketch1.png')
 img.sketch(src='./assets/sketchbook/sketch2.png')
@@ -216,9 +223,12 @@ a {
 }
 
 a, h2, h3, p, .text {
+    font-family: 'VT323', sans-serif;
+  color: blue;
   font-size:calc(20px + 2.5vw);
 
   font-weight: bold;
+    color: blue;
 }
 
 .sketchbook {
