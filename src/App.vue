@@ -236,7 +236,8 @@ a, h2, h3, p, .text {
 }
 
 .sketch {
-  max-width: 100%;
+  max-width: 60%;
+  max-height: 60%;
   margin: 20px 0 0 0;
 }
 
