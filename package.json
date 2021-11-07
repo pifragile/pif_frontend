@@ -13,7 +13,11 @@
     "pug": "^3.0.2",
     "pug-plain-loader": "^1.1.0",
     "vue": "^3.0.0",
-    "vue-spinner": "^1.0.4"
+    "vue-spinner": "^1.0.4",
+    "@ckpack/vue-color": "^1.1.4",
+    "bulma": "^0.9.3",
+    "node-sass": "^6.0.1",
+    "sass-loader": "^10"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
