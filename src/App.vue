@@ -1,13 +1,13 @@
 <template lang="pug">
 p
-  | Hi, I am an NFT artist and  programmer working with different flavors of generative art!
+  | pifragile is a digital art project founded in 2021.
   br
-  | I can help you with generative art, mint automation, smart contracts, metamask, etc... DM me on twitter. I have a Master&apos;s Degree in Computer Science from ETH Zürich and experience in those areas!
+  | My background is in programming, I have a masters degree in Computer Science from ETH Zürich and did a lot of blockchain coding experimenting with new consensus mechanisms like BFT-algorithms, a Proof-Of-Personhood cryptocurrency or synthetic financial products in Ethereum smart contracts.
+  br
+  | I love generative art because I finally found a way to express myself visually and I am really looking forward to this journey!
   br
   br
   | Check out my projects below (reload page for new NFTs and click images to view on OpenSea).
-  br
-  | You can now also buy NFTs with credit card on OpenSea!
 
 p All the best, pifragile.
 
