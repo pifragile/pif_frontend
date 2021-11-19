@@ -40,8 +40,13 @@ div(v-else)
       :featured='false'
     )
 
-  h2 Testimonials
+  h2 News
 .quotes
+  .quote.imagequote.wrap-text
+    p My piece Cosmic Sun N001 is feaured in the NFT Art Week Shenzhen 2021&nbsp;
+    img.imagequote(src="./assets/shenzhen/shenzen.jpg")
+    img.imagequote(src="./assets/shenzhen/CosmicSunN001.png")
+    img.imagequote(src="./assets/shenzhen/shenzhen1.jpg")
   .quote
     p NFT Collector&nbsp;
       a(href='https://twitter.com/ghostlasers') ghostlasers
@@ -49,11 +54,11 @@ div(v-else)
       br
       | "my favorite, is his generative evolutionary take on AbEx, Abstract Expressionism, [...] this fucking looks like Mark Rothko fighting Agnes Martin in an Octagon designed by Bridget Riley, with fucking Barnett Newman or Ad Reinhardt as the referee"
 
-  .quote.virtualgallery.wrap-text
+  .quote.imagequote.wrap-text
     p Check out the piece Crypto Warriors #0002 in this&nbsp;
       a(href='https://oncyber.io/rehearsal') virtual gallery
       | .
-    img.virtualgallery(src="./assets/virtualgallery.png")
+    img.imagequote(src="./assets/virtualgallery.png")
 
 
 .sketchbook
@@ -197,11 +202,12 @@ body {
 
 }
 
-img.virtualgallery {
-  max-width: 80vw;
+img.imagequote {
+  max-width: 60vw;
+  margin: 10px;
 }
 
-.quote.virtualgallery {
+.quote.imagequote {
   text-align: center;
 }
 
