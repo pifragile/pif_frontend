@@ -3,30 +3,26 @@
 .columns.is-centered
     .column.is-half-desktop.is-full-mobile.is-10-tablet
       .box
-        .columns
+        .columns(v-for="(imageSrc, index) in imageSrcs")
           .column
             figure.image
-              img(:src="this.imageUrl")
+              img(:src="require(`../assets/${imageSrc}`)")
         .columns
           .column
-            text {{seriesName}}
+            text {{title}}
         .columns
           .column
-            text {{seriesDescription}}
-        .columns
-          .column
-            a(:href="seriesUrl" target="_blank") Link: click here
+            text {{text}}
 
 </template>
 
 <script>
 export default {
-  name: 'NFTSeries',
+  name: 'NewsItem',
   props: {
-    imageUrl: String,
-    seriesName: String,
-    seriesUrl: String,
-    seriesDescription: String,
+    imageSrcs: Array,
+    title: String,
+    text: String,
   },
 }
 </script>
