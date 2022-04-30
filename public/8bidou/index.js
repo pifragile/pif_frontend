@@ -31,7 +31,7 @@ function flatHours(date) {
     return date;
 }
 
-function getListingsAndSalesLastXHours(x) {
+function getSwapsAndSalesLastXHours(x, contractAddress) {
     let params = {
         type: "transaction",
         "entrypoint.in": "swap,buy",
@@ -44,7 +44,7 @@ function getListingsAndSalesLastXHours(x) {
 
     let url = getUrl(
         "accounts",
-        "KT1BvWGFENd4CXW5F3u4n31xKfJhmBGipoqF",
+        contractAddress,
         "operations"
     );
 
@@ -61,20 +61,28 @@ function getListingsAndSalesLastXHours(x) {
     return fullData;
 }
 
-function getAggregateListingsAndSalesLastXHours(x) {
-    data = getListingsAndSalesLastXHours(x);
+function getAggregateSwapsAndSalesLastXHours(x, contractUrl) {
+    data = getSwapsAndSalesLastXHours(x, contractUrl);
     let currentDate = flatHours(fromDateString(data[0]["timestamp"]));
 
     let aggregateData = {};
+    // init data with 0s
+    let now = flatHours(new Date(Date.now()));
+    for (let i = 0; i < x + 1; i++) {
+        let d = new Date(now.getTime());
+        d.setHours(d.getHours() - i);
+        aggregateData[dateString(d)] = {numSales: 0, numSwaps: 0};
+
+    }
     let numSales = 0
-    let numListings = 0;
+    let numSwaps = 0;
     for (let tx of data) {
         let date = flatHours(fromDateString(tx["timestamp"]));
         if (date < currentDate) {
-            aggregateData[dateString(currentDate)] = { numSales, numListings };
+            aggregateData[dateString(currentDate)] = {numSales, numSwaps};
             currentDate = flatHours(date);
             numSales = 0;
-            numListings = 0;
+            numSwaps = 0;
         }
 
         let amount = parseInt(tx["parameter"]["value"]["nft_amount"]);
@@ -85,78 +93,74 @@ function getAggregateListingsAndSalesLastXHours(x) {
                 numSales += amount;
                 break;
             case "swap":
-                numListings += amount;
+                numSwaps += amount;
                 break;
             default:
         }
     }
-    aggregateData[dateString(currentDate)] = { numSales, numListings };
+    aggregateData[dateString(currentDate)] = {numSales, numSwaps};
 
     return aggregateData;
 }
 
-function getListingsAndSales() {
-    let data = getAggregateListingsAndSalesLastXHours(12);
-    return data
-}
 
-let listingsAndSales = getListingsAndSales();
-
+let swapsAndSales8x8 = getAggregateSwapsAndSalesLastXHours(12, 'KT1BvWGFENd4CXW5F3u4n31xKfJhmBGipoqF');
+let swapsAndSales24x24 = getAggregateSwapsAndSalesLastXHours(12, 'KT1AHBvSo828QwscsjDjeUuep7MgApi8hXqA');
 // listingsAndSales = {
 //   "2022-04-07T14:00:00Z": {
 //       "numSales": 14,
-//       "numListings": 8
+//       "numSwaps": 8
 //   },
 //   "2022-04-07T13:00:00Z": {
 //       "numSales": 24,
-//       "numListings": 2388
+//       "numSwaps": 2388
 //   },
 //   "2022-04-07T12:00:00Z": {
 //       "numSales": 40,
-//       "numListings": 232
+//       "numSwaps": 232
 //   },
 //   "2022-04-07T11:00:00Z": {
 //       "numSales": 33,
-//       "numListings": 70
+//       "numSwaps": 70
 //   },
 //   "2022-04-07T10:00:00Z": {
 //       "numSales": 64,
-//       "numListings": 189
+//       "numSwaps": 189
 //   },
 //   "2022-04-07T09:00:00Z": {
 //       "numSales": 19,
-//       "numListings": 1089
+//       "numSwaps": 1089
 //   },
 //   "2022-04-07T08:00:00Z": {
 //       "numSales": 23,
-//       "numListings": 67
+//       "numSwaps": 67
 //   },
 //   "2022-04-07T07:00:00Z": {
 //       "numSales": 34,
-//       "numListings": 88
+//       "numSwaps": 88
 //   },
 //   "2022-04-07T06:00:00Z": {
 //       "numSales": 15,
-//       "numListings": 64
+//       "numSwaps": 64
 //   },
 //   "2022-04-07T05:00:00Z": {
 //       "numSales": 8,
-//       "numListings": 96
+//       "numSwaps": 96
 //   },
 //   "2022-04-07T04:00:00Z": {
 //       "numSales": 15,
-//       "numListings": 82
+//       "numSwaps": 82
 //   },
 //   "2022-04-07T03:00:00Z": {
 //       "numSales": 17,
-//       "numListings": 49
+//       "numSwaps": 49
 //   },
 //   "2022-04-07T02:00:00Z": {
 //       "numSales": 22,
-//       "numListings": 49
+//       "numSwaps": 49
 //   },
 //   "2022-04-07T01:00:00Z": {
 //       "numSales": 21,
-//       "numListings": 246
+//       "numSwaps": 246
 //   }
 // }

@@ -1,43 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>8bidou market metrics</title>
     <style>
-      body {    
-          position: fixed;
-          top: 0;
-          left: 0;
-          z-index: -1;
-          width: 100vw;
-          height: 100vh;
-          padding: 0;
-          margin: 0;
+        .container {
+            display: flex;
+            flex-wrap: wrap;
         }
-        #container {
-          width: min(100vw, 100vh);
-          height: min(100vw, 100vh);
-          display: flex;
-            align-items: center;
-            justify-content: center;
+
+        .canvascontainer {
+            width: max(48vw, 60vh);
+            height: max(48vw, 60vh);
         }
+
         canvas {
-          margin: 0;
-          padding: 0;
-          border: 0;
-          font-size: 100%;
-          font: inherit;
-          vertical-align: baseline;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
         }
-  </style>
-  </head>
+    </style>
+</head>
 
-  <body>
-    <div id="container">
-        <canvas id="myChart" width="400" height="400"></canvas>
+<body>
+<div class="container">
+    <div class="canvascontainer">
+        <canvas id="chart8x8" width="400" height="400"></canvas>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
-    <script src="./index.js"></script>
-    <script src="./graphs.js"></script>
+    <div class="canvascontainer">
+        <canvas id="chart24x24" width="400" height="400"></canvas>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+<script src="./index.js"></script>
+<script src="./graphs.js"></script>
 
-  </body>
+</body>
 </html>
