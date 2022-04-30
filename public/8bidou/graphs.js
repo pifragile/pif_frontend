@@ -8,7 +8,6 @@ function createSwapsVsSalesChart(data, chartType) {
         dataList.push(dataItem);
     }
     dataList.sort((a, b) => new Date(a.date) - new Date(b.date));
-
     let labels = [];
     let sales = [];
     let swaps = [];
@@ -22,12 +21,12 @@ function createSwapsVsSalesChart(data, chartType) {
 
     for (let item of dataList) {
         labels.push(item.date);
-        labels = labels.map((date) =>
-            new Date(date).toLocaleTimeString('en-US', dateOptions)
-        );
         sales.push(item.numSales);
         swaps.push(item.numSwaps);
     }
+    labels = labels.map((date) =>
+        new Date(date).toLocaleTimeString('en-US', dateOptions)
+    );
     const chart = new Chart(ctx, {
         type: "bar",
         data: {
