@@ -13,6 +13,7 @@ function getParam(p) {
     return truncate(parseFloat(urlParams.get(p)))
 }
 
+let anim=false
 function setup() {
     pg = createGraphics(cs, cs)
     pg.colorMode(HSB)
@@ -23,7 +24,7 @@ function setup() {
     window.editart_m2 = getParam('m2')
     window.editart_m3 = getParam('m3')
     window.editart_m4 = getParam('m4')
-
+    anim = Boolean(getParam('anim'))
 }
 
 function setImage() {
@@ -46,7 +47,11 @@ function draw() {
     m4 = window.editart_m4
     pg.background(m0 * 360, 100, 100)
     pg.fill(m1 * 360, 100, 100)
-    pg.circle(m2 * cs, m3 * cs, m4 * cs)
+    if (anim) {
+        pg.circle(m2 * cs + frameCount % 200, m3 * cs, m4 * cs)
+    }else {
+        pg.circle(m2 * cs, m3 * cs, m4 * cs)
+    }
     setImage()
 }
 
