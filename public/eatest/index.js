@@ -10,7 +10,11 @@ function truncate(i) {
 function getParam(p) {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    return truncate(parseFloat(urlParams.get(p)))
+    const param = urlParams.get(p)
+    if(param) {
+        return truncate(parseFloat(param))
+    }
+    return null
 }
 
 let anim=false
@@ -36,15 +40,14 @@ function setImage() {
 
 
 
-
 function draw() {
     pg.clear()
     pg.noStroke()
-    m0 = window.editart_m0
-    m1 = window.editart_m1
-    m2 = window.editart_m2
-    m3 = window.editart_m3 
-    m4 = window.editart_m4
+    m0 = window.parent.editart_m0 || window.editart_m0
+    m1 = window.parent.editart_m1 || window.editart_m1
+    m2 = window.parent.editart_m2 || window.editart_m2
+    m3 = window.parent.editart_m3 || window.editart_m3
+    m4 = window.parent.editart_m4 || window.editart_m4
     pg.background(m0 * 360, 100, 100)
     pg.fill(m1 * 360, 100, 100)
     if (anim) {
