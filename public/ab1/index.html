@@ -5,18 +5,23 @@
   <title>Project Preview</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script>
-    // command to list files comma separated
-    // ls -p | grep -v / | tr '\n' ',' | sed -e "s/^/'/" -e "s/\$/'/" -e "s/,/',\'/g"
-    $(document).ready(function () {
-      var folder = "./images/";
-      let images = [
-      'oo2c8D4PFvepacezB4nGQ6YEYvaLrNv9FhaGi3jjSbgCoGdCKco.png','oo5nThrPzBt2BEMRS3dVo71LSHPKtfhcmyCt86kAudyLPRGqbjF.png','ooAbeQg5XoFQBHwsBsi3mjvhW8GKkRfz5GDacUoBxnmoym4Cm1V.png','ooEYpXcr6vba8rH6ZdE5XZzeUdG6vyaDgtqRYSqyADaSSyVShLQ.png','ooHnu7bCrQpm3Jpuh9RNLxxeaJWcTYzcmiu2sHwqWsSHond7ULV.png','ooLYWfFECridxfUr2ke7ybZ8wwD3sBoYVfK7dbSnSnf1b1M44jj.png','ooQxY1e5xA2gmWeKjkNWnCB8BB2X3NNkGbLJ1vFQWgmiizsFuNp.png','ooSBX4JnwtXQqDzTUvaC1cnkjipBF1jLGTGNPpSSrDhRjkqfGFm.png','ooTKsxVQseU4CbjU3yXcSbHjmN5YCMAux3Z7kPt5LcsKg96tGD8.png','ooXQSQUbSE1PSR5SZWG1xtpmJCMRbzLYv3QjBjnQbTc9qiWNDtL.png','ooafDJtKToSj7fkrLd7fgoG9d4syKTMHGVe7eMArn8sQkbif1eS.png','ooczMpCi5NEmwPhb6N9zETWgP31PHhT6DyZSJLxByuSrh6nT7YW.png','oofodxnpgmpnE7Xmgc6TfseDpMoeu6B6xfszwpEiLHfFMxai3dY.png','oogFzLyAi2KKCAB5SG7YFE7PAAEco7VQCxjhznyTQJhdGAo3WEF.png','oojn9fQzKPt27uJBr8FKdBYy9wo1f2tyz9jSaBMZVJrXAE5TWRi.png','oonhujc3vppV2qWwu5Qk3y1yhm7Jv6KQfzfMrWJMbpXgfV6sXRG.png','ooqMHehbLr1p6vaUnTuRdqWgokYyWHuuV68MeWEjBGs1Ut8wonK.png','oosMuXGzbFcddFGqsG1zw29dj6FbZoe13RK3npE4yQoqFXsf9Yu.png','ootFiAsWa27MmrjLw987SpfXfBvazsdG1DFqDwLcJD3hZ34GxnD.png','ootx7GWLjLK2insd4WtsfSkEk8iHxcNvpcgodipwGsfWt1NMDwD.png','oouAyysT64esqC2exgBaPLSE3VbEfKKNpVXBMCPWEyGrGnQfDoN.png','oouGSWLNehy9mFTrReooiQiVdHejv3XAccjxwaUDosqeUdV4nHy.png','oouZyVUD5a1ep2hcUshaPiFGF7rMqUe6owXSRFTqYkK22aTajG3.png','oozyGvdWsW2zFY2UFiFCnnenGGAiapbPraJRBFvK9WhQMetL4fi.png'
-    ]
-      for (let val of images) {
-        $(".container").append("<img src='" + folder + val + "'>");
-      }
+    let baseUrl = "https://pifragile.s3.us-east-2.amazonaws.com/";
+    let folder = 'ab1'
+    $.ajax({
+      url: "https://pifragile.s3.us-east-2.amazonaws.com",
+      success: function (data) {
+        $(data).find("Contents Key").each(function() {
+            let val = $(this).text()
+            let parts = val.split('/')
+            if (parts[0] != folder) return
 
-    })
+          if (val.match(/\.(jpe?g|png|gif)$/)) {
+            $(".container").append(`<img src='${baseUrl}${val}'>`);
+          }
+        });
+      }
+    });
+  </script>
 
   </script>
   <style>
