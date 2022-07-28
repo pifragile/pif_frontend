@@ -22,7 +22,7 @@
 
 .columns.is-flex-wrap-wrap.is-flex-direction-row.is-justify-content-center
   NewsItem(
-    title="I published an article about my first year as a generartive artist."
+    title="I published an article about my first year as a generative artist."
     link="https://medium.com/@pifragile/nfts-art-and-tears-what-my-first-year-as-a-generative-art-rookie-felt-like-and-what-you-can-learn-500ebfc4c233"
     :image-srcs="['pifragile.png']"
     )
