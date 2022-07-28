@@ -9,9 +9,12 @@
     .columns
       .column
         text {{title}}
-    .columns
+    .columns(v-if="this.text")
       .column
         text {{text}}
+    .columns(v-if="this.link")
+      .column
+        a(:href="link" target="_blank") Link: click here
 
 </template>
 
@@ -22,6 +25,7 @@ export default {
     imageSrcs: Array,
     title: String,
     text: String,
+    link: String,
   },
 }
 </script>

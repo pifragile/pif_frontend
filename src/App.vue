@@ -22,6 +22,13 @@
 
 .columns.is-flex-wrap-wrap.is-flex-direction-row.is-justify-content-center
   NewsItem(
+    title="I published an article about my first year as a generartive artist."
+    link="https://medium.com/@pifragile/nfts-art-and-tears-what-my-first-year-as-a-generative-art-rookie-felt-like-and-what-you-can-learn-500ebfc4c233"
+    :image-srcs="['pifragile.png']"
+    )
+
+
+  NewsItem(
     title="My piece Cosmic Sun N001 was feaured in the NFT Art Week Shenzhen 2021"
     :image-srcs="['shenzhen/shenzen.jpg', 'shenzhen/CosmicSunN001.png', 'shenzhen/shenzhen1.jpg']"
     )
