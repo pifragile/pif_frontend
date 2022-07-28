@@ -1,18 +1,17 @@
 <template lang="pug">
 
-.columns.is-centered
-    .column.is-half-desktop.is-full-mobile.is-10-tablet
-      .box
-        .columns(v-for="(imageSrc, index) in imageSrcs")
-          .column
-            figure.image
-              img(:src="require(`../assets/${imageSrc}`)")
-        .columns
-          .column
-            text {{title}}
-        .columns
-          .column
-            text {{text}}
+.column.is-two-thirds-desktop.is-full-mobile.is-full-tablet
+  .box
+    .columns.is-flex-wrap-wrap.is-flex-direction-row.is-justify-content-center
+      .column(v-for="(imageSrc, index) in imageSrcs").is-one-third
+        figure.image
+          img(:src="require(`../assets/${imageSrc}`)")
+    .columns
+      .column
+        text {{title}}
+    .columns
+      .column
+        text {{text}}
 
 </template>
 

@@ -1,21 +1,15 @@
 <template lang="pug">
 
-.columns.is-centered
-    .column.is-half-desktop.is-full-mobile.is-10-tablet
-      .box
-        .columns
-          .column
-            figure.image
-              img(:src="this.imageUrl")
-        .columns
-          .column
-            text {{seriesName}}
-        .columns
-          .column
-            text {{seriesDescription}}
-        .columns
-          .column
-            a(:href="seriesUrl" target="_blank") Link: click here
+.column.is-one-quarter-desktop.is-full-mobile.is-half-tablet
+  .box
+    .columns
+      .column
+        figure.image
+          img(:src="this.imageUrl")
+    .columns
+      .column
+        a(:href="seriesUrl" target="_blank") {{seriesName}}
+        
 
 </template>
 

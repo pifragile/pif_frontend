@@ -7,23 +7,24 @@
   .column
     text Generative Art by pifragile
 
-
-NFTSeries(
-  v-for='nft in nfts'
-  :seriesName='nft.name'
-  :imageUrl='nft.imageUrl'
-  :seriesUrl='nft.url'
-  :seriesDescription='nft.description'
-)
+.columns.is-flex-wrap-wrap.is-flex-direction-row
+  NFTSeries(
+    v-for='nft in nfts'
+    :seriesName='nft.name'
+    :imageUrl='nft.imageUrl'
+    :seriesUrl='nft.url'
+    :seriesDescription='nft.description'
+  )
 
 .columns.is-centered
   .column.has-text-centered
     text News
 
-NewsItem(
-  title="My piece Cosmic Sun N001 was feaured in the NFT Art Week Shenzhen 2021"
-  :image-srcs="['shenzhen/shenzen.jpg', 'shenzhen/CosmicSunN001.png', 'shenzhen/shenzhen1.jpg']"
-  )
+.columns.is-flex-wrap-wrap.is-flex-direction-row.is-justify-content-center
+  NewsItem(
+    title="My piece Cosmic Sun N001 was feaured in the NFT Art Week Shenzhen 2021"
+    :image-srcs="['shenzhen/shenzen.jpg', 'shenzhen/CosmicSunN001.png', 'shenzhen/shenzhen1.jpg']"
+    )
 
 //.sketchbook
 //p Sketchbook
