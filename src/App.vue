@@ -27,6 +27,11 @@
     :image-srcs="['pifragile.png']"
     )
 
+  NewsItem(
+    title="My piece 0xZae was featured in the Doomscroll exhibition in Zürich in July, 2022."
+        link="https://ensoie.com/en/news/doomscroll"
+    :image-srcs="['zae.png', 'doomscrollOpening.jpeg']"
+    )
 
   NewsItem(
     title="My piece Cosmic Sun N001 was feaured in the NFT Art Week Shenzhen 2021"
