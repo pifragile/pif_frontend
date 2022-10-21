@@ -5,7 +5,6 @@ var fxhash =
         .fill(0)
         .map((_) => alphabet[(Math.random() * alphabet.length) | 0])
         .join("");
-fxhash = 'ooPBk3Te1oRjohXWpZpkjy6YUAHPgBybyhAEQ6A8A4STxWQz94f'
 console.log(fxhash);
 let b58dec = (str) =>
     [...str].reduce(
