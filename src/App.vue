@@ -24,7 +24,7 @@
   NewsItem(
     title="I am part of the Expanded Cinema Exhibition at Kurzfilmtage Winterthur. Opening Nov 9 2022."
     link="https://www.oxydart.ch/de/ausstellungen/843/EXPANDED-CINEMA-KURZFILMTAGE-X-OXYD.html"
-    :image-srcs="['winti.png']"
+    :image-srcs="['winti.png', 'winti01.jpeg']"
     )
 
   NewsItem(
